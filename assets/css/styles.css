@@ -59,7 +59,7 @@
 /* Font size for large devices */
 @media screen and (min-width: 968px) {
     :root {
-        --big-font-size: 3rem;
+        --big-font-size: 2.3rem;
         --h1-font-size: 2.25rem;
         --h2-font-size: 1.5rem;
         --h3-font-size: 1.25rem;
@@ -285,7 +285,7 @@ img{
 }
 
 .home__social-icon{
-    font-size: 1.25rem;
+    font-size: 2rem;
     color: var(--first-color);
 }
 
@@ -312,7 +312,8 @@ img{
 
 .home__subtitle{
     font-size: var(--h3-font-size);
-    color: var(--text-color);
+    /* color: var(--text-color); */
+    color: var(--first-color);
     font-weight: var(--font-medium);
     margin-bottom: var(--mb-0-75);
 }
@@ -512,12 +513,17 @@ img{
     width: 60%;
 }
 .skills__react{
+    width: 75%;
+}
+.skills__electron{
+    width: 30%;
+}
+.skills__next{
     width: 85%;
 }
 
-
 .skills__node{
-    width: 30%;
+    width: 60%;
 }
 
 .skills__figma{
@@ -534,6 +540,15 @@ img{
 }
 .skills__Illustrator{
     width: 85%;
+}
+.skills__sanity{
+    width: 70%;
+}
+.skills__postgres{
+    width: 80%;
+}
+.skills__mongo{
+    width: 60%;
 }
 
 .skills__close .skills__list{
@@ -991,6 +1006,11 @@ img{
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices */
 @media screen and (max-width: 350px){
+
+    .home__social-icon{
+        font-size: 1.25rem;
+        color: var(--first-color);
+    }
     .container{
         margin-left: var(--mb-1);
         margin-right: var(--mb-1);
@@ -1056,6 +1076,7 @@ img{
 
 /* For medium devices */
 @media screen and (min-width: 568px){
+    
     .home__content{
         grid-template-columns: max-content 1fr 1fr;
     }
