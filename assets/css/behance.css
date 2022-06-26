@@ -1,0 +1,80 @@
+.project-container {
+    /* overflow: hidden; */
+    position: relative;
+    margin: 0 5px;
+  }
+
+  .container-b{
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .container-b .button--flex{
+    border-width: 0px;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 30px 0;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .container-b .div-2{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  #behance-feed{
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+  
+  .project-container img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .project-container .img-backdrop {
+    background: linear-gradient(135deg, rgba(71, 38, 255, 0.85), rgba(10, 0, 119, 0.85));
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .project-container:hover > .img-backdrop {
+    opacity: 1;
+  }
+  
+  .project-container .description-container {
+    color: #fff;
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    z-index: 2;
+    opacity: 0;
+    transition: all .2s ease;
+    height: 50px;
+  }
+  
+  .project-container:hover .description-container {
+    opacity: 1;
+  }
+  
+  .project-container .description-container .caption {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  
