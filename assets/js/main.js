@@ -193,3 +193,13 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+// Enable dark theme by default when website loads
+window.addEventListener('DOMContentLoaded', function () {
+    // Add or remove the dark / icon theme
+    document.body.classList.add(darkTheme)
+    themeButton.classList.add(iconTheme)
+    // We save the theme and the current icon that the user chose
+    localStorage.setItem('selected-theme', getCurrentTheme())
+    localStorage.setItem('selected-icon', getCurrentIcon())
+});
