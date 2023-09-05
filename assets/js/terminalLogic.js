@@ -264,8 +264,16 @@ async function simulateCommandExecution(command) {
             youtube
         </td>
         <td style="line-height: 5px;">
-            <a href="https://www.youtube.com/channel/UCXiZiJ6KAhPLSUrN5ILXXiw" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;">
-                youtube/romil jain
+            <a href="https://www.youtube.com/channel/UCXiZiJ6KAhPLSUrN5ILXXiw" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;" 
+            To change the background color of the link when it's hovered over, you can modify the style attribute in the onmouseover and onmouseout attributes. Here's an example of how to do it:
+            
+            html
+            Copy code
+            <td style="line-height: 5px;">
+                <a href="https://www.youtube.com/channel/UCXiZiJ6KAhPLSUrN5ILXXiw" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;"
+                onmouseover="this.querySelector('span').style.color='black'; this.querySelector('span').style.backgroundColor='#01d293'; this.querySelector('span').style.padding='2px 10px'; this.querySelector('span').style.borderRadius='20px';"
+                onmouseout="this.querySelector('span').style.color='skyblue'; this.querySelector('span').style.backgroundColor='transparent';">
+                 <span>youtube/romil jain</span>
             </a>
         </td>
     </tr>
@@ -274,8 +282,10 @@ async function simulateCommandExecution(command) {
             instagram
         </td>
         <td style="line-height: 5px;">
-            <a href="https://www.instagram.com/romil_jain99/" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;">
-                instagram/romil_jain99
+            <a href="https://www.instagram.com/romil_jain99/" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;"
+            onmouseover="this.querySelector('span').style.color='black'; this.querySelector('span').style.backgroundColor='#01d293'; this.querySelector('span').style.padding='2px 10px'; this.querySelector('span').style.borderRadius='20px';"
+                onmouseout="this.querySelector('span').style.color='skyblue'; this.querySelector('span').style.backgroundColor='transparent';">
+                <span>instagram/romil_jain99</span>
             </a>
         </td>
     </tr>
@@ -284,8 +294,11 @@ async function simulateCommandExecution(command) {
             linkedin
         </td>
         <td style="line-height: 5px;">
-            <a href="https://www.linkedin.com/in/romil-jain123/" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;">
-                linkedin/romil-jain123
+            <a href="https://www.linkedin.com/in/romil-jain123/" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;"
+            onmouseover="this.querySelector('span').style.color='black'; this.querySelector('span').style.backgroundColor='#01d293'; this.querySelector('span').style.padding='2px 10px'; this.querySelector('span').style.borderRadius='20px';"
+                onmouseout="this.querySelector('span').style.color='skyblue'; this.querySelector('span').style.backgroundColor='transparent';">
+                 
+                <span>linkedin/romil-jain123</span>
             </a>
         </td>
     </tr>
@@ -294,8 +307,10 @@ async function simulateCommandExecution(command) {
             twitter
         </td>
         <td style="line-height: 5px;">
-            <a href="https://twitter.com/romiljai" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;">
-                twitter/romiljai
+            <a href="https://twitter.com/romiljai" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;"
+            onmouseover="this.querySelector('span').style.color='black'; this.querySelector('span').style.backgroundColor='#01d293'; this.querySelector('span').style.padding='2px 10px'; this.querySelector('span').style.borderRadius='20px';"
+                onmouseout="this.querySelector('span').style.color='skyblue'; this.querySelector('span').style.backgroundColor='transparent';">
+                <span>twitter/romiljai</span>
             </a>
         </td>
     </tr>
@@ -304,8 +319,10 @@ async function simulateCommandExecution(command) {
             github
         </td>
         <td style="line-height: 5px;">
-            <a href="https://github.com/romiljain5" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;">
-                github/romiljain5
+            <a href="https://github.com/romiljain5" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;"
+            onmouseover="this.querySelector('span').style.color='black'; this.querySelector('span').style.backgroundColor='#01d293'; this.querySelector('span').style.padding='2px 10px'; this.querySelector('span').style.borderRadius='20px';"
+                onmouseout="this.querySelector('span').style.color='skyblue'; this.querySelector('span').style.backgroundColor='transparent';">
+                <span>github/romiljain5</span>
             </a>
         </td>
     </tr>
@@ -314,8 +331,10 @@ async function simulateCommandExecution(command) {
             behance
         </td>
         <td style="line-height: 5px;">
-            <a href="https://www.behance.net/romiljain2" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;">
-                behance/romiljain2
+            <a href="https://www.behance.net/romiljain2" target="_blank" style="text-decoration: none; color: skyblue; cursor: pointer;"
+            onmouseover="this.querySelector('span').style.color='black'; this.querySelector('span').style.backgroundColor='#01d293'; this.querySelector('span').style.padding='2px 10px'; this.querySelector('span').style.borderRadius='20px';"
+                onmouseout="this.querySelector('span').style.color='skyblue'; this.querySelector('span').style.backgroundColor='transparent';">
+                <span>behance/romiljain2</span>
             </a>
         </td>
     </tr>
