@@ -154,8 +154,8 @@ async function simulateCommandExecution(command) {
       return `<div>
 <span style="color: rgb(0, 200, 0);">Available Commands:</span><br>
 <span style="color: rgb(0, 200, 0);">whoami:</span> <span style="color: #ccc;">Tells you who you are</span>
-<span style="color: rgb(0, 200, 0);">sign-in:</span> <span style="color: #ccc;">Redirects you to the login page</span>
-<span style="color: rgb(0, 200, 0);">sign-out:</span> <span style="color: #ccc;">Signs out the current user</span>
+<span style="color: rgb(0, 200, 0);">whois:</span> <span style="color: #ccc;">Who is Romil Jain?</span>
+<span style="color: rgb(0, 200, 0);">email:</span> <span style="color: #ccc;">Do not mail</span>
 <span style="color: rgb(0, 200, 0);">history:</span> <span style="color: #ccc;">View command history</span>
 <span style="color: rgb(0, 200, 0);">secret:</span> <span style="color: #ccc;">Find the password</span>
 <span style="color: rgb(0, 200, 0);">get-location:</span> <span style="color: #ccc;">Gets your current location</span>
@@ -165,7 +165,7 @@ async function simulateCommandExecution(command) {
 </div>
 `;
     case "whoami":
-      return "You are the current user.";
+      return "You are the user behind the screen, the commander of this terminal, and the one who holds the power to explore and control this digital world.";
     case "":
       return;
     case "clear":
@@ -278,6 +278,23 @@ async function simulateCommandExecution(command) {
         </td>
     </tr>
 </table>`;
+    case "secret":
+      const userInput = prompt('Please enter a secret:');
+
+      // Check if the user entered something or clicked "Cancel"
+      if(userInput === `passwordfornerd`){
+        // User entered something, you can treat userInput as a secret here
+        outputElement.innerHTML += `<div style="color: rgb(0, 200, 0)">HURRAY! You guessed correct</div>`;
+      }else if (userInput !== null) {
+        // User entered something, you can treat userInput as a secret here
+        outputElement.innerHTML += `<div>${userInput} is not the correct password</div>`;
+      } else {
+        // User clicked "Cancel" or closed the prompt
+        outputElement.innerHTML += `<div>User canceled or closed the prompt.</div>`;
+      }
+      break;
+    case "whois":
+        return `Just a developer like you`;
     case "get-location":
       try {
         const location = await getUserLocationAsync();
@@ -291,7 +308,11 @@ async function simulateCommandExecution(command) {
         );
       } catch (error) {
         return error;
-      }
+      };
+    case "email":
+        const mailtoLink = `mailto:${'jromil51@gmail.com'}`;
+        window.open(mailtoLink, "_blank");
+        return;
     default:
       return `Command not found: ${command}`;
   }
