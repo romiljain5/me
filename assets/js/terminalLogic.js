@@ -46,6 +46,20 @@ inputElement.addEventListener("keydown", async (event) => {
 
 inputElement.addEventListener("input", updateTypedCommand);
 
+function typeText(text, element) {
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            element.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(type, 0.05); // Adjust typing speed (milliseconds per character)
+        }
+    }
+
+    type();
+}
+
 async function executeCommand(command) {
   // Add the command to the output
   outputElement.innerHTML += `<div><span class="prompt">$ romil-jain-dev >> </span> ${command}</div>`;
@@ -68,6 +82,8 @@ async function executeCommand(command) {
   // Display the response (if any)
   if (response) {
     outputElement.innerHTML += `<div>${response}</div>`;
+    // typeText(response, outputElement);
+
   }
   // Scroll to the bottom of the terminal
   terminalElement.scrollTop = terminalElement.scrollHeight;
@@ -148,24 +164,50 @@ async function getUserLocationAsync() {
   });
 }
 
+async function getLocation(){
+    try {
+        const location = await getUserLocationAsync();
+        console.log("Latitude: " + location.latitude);
+        console.log("Longitude: " + location.longitude);
+        return (
+          "Your location: Latitude " +
+          location.latitude +
+          ", Longitude " +
+          location.longitude
+        );
+      } catch (error) {
+        return error;
+      };
+}
+
 async function simulateCommandExecution(command) {
   switch (command.toLowerCase()) {
     case "help":
       return `<div>
-<span style="color: rgb(0, 200, 0);">Available Commands:</span><br>
-<span style="color: rgb(0, 200, 0);">whoami:</span> <span style="color: #ccc;">Tells you who you are</span>
-<span style="color: rgb(0, 200, 0);">whois:</span> <span style="color: #ccc;">Who is Romil Jain?</span>
-<span style="color: rgb(0, 200, 0);">email:</span> <span style="color: #ccc;">Do not mail</span>
-<span style="color: rgb(0, 200, 0);">history:</span> <span style="color: #ccc;">View command history</span>
-<span style="color: rgb(0, 200, 0);">secret:</span> <span style="color: #ccc;">Find the password</span>
-<span style="color: rgb(0, 200, 0);">get-location:</span> <span style="color: #ccc;">Gets your current location</span>
-<span style="color: rgb(0, 200, 0);">social:</span> <span style="color: #ccc;">Display social networks</span>
-<span style="color: rgb(0, 200, 0);">banner:</span> <span style="color: #ccc;">Shows banner</span>
-<span style="color: rgb(0, 200, 0);">clear:</span> <span style="color: #ccc;">Clears out everything on screen!</span>
+<span style="color: #01d293;">Available Commands:</span><br>
+<span style="color: #01d293;">whoami:</span> <span style="color: #ccc;">Who are you?</span>
+<span style="color: #01d293;">whois:</span> <span style="color: #ccc;">Who is Romil Jain?</span>
+<span style="color: #01d293;">email:</span> <span style="color: #ccc;">Do not mail me</span>
+<span style="color: #01d293;">history:</span> <span style="color: #ccc;">View command history</span>
+<span style="color: #01d293;">secret:</span> <span style="color: #ccc;">Find the password</span>
+<span style="color: #01d293;">get-location:</span> <span style="color: #ccc;">Gets your current location</span>
+<span style="color: #01d293;">social:</span> <span style="color: #ccc;">Display social networks</span>
+<span style="color: #01d293;">banner:</span> <span style="color: #ccc;">Shows banner</span>
+<span style="color: #01d293;">clear:</span> <span style="color: #ccc;">Clear terminal</span>
 </div>
 `;
     case "whoami":
-      return "You are the user behind the screen, the commander of this terminal, and the one who holds the power to explore and control this digital world.";
+        const userAgent=window.navigator.userAgent;
+        const userLanguage=window.navigator.language;
+        const timezoneOffsetMinutes = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const getGeo = await getLocation();
+        return `
+<span style="color: #01d293;">User Agent:</span> ${userAgent}, 
+<span style="color: #01d293;">User Language:</span> ${userLanguage},
+<span style="color: #01d293;">User Timezone:</span> ${timezoneOffsetMinutes},
+<span style="color: #01d293;">User Location:</span> ${getGeo}
+        `;
+    //   return "You are the user behind the screen, the commander of this terminal, and the one who holds the power to explore and control this digital world.";
     case "":
       return;
     case "clear":
@@ -284,7 +326,7 @@ async function simulateCommandExecution(command) {
       // Check if the user entered something or clicked "Cancel"
       if(userInput === `passwordfornerd`){
         // User entered something, you can treat userInput as a secret here
-        outputElement.innerHTML += `<div style="color: rgb(0, 200, 0)">HURRAY! You guessed correct</div>`;
+        outputElement.innerHTML += `<div style="color: #01d293">HURRAY! You guessed correct</div>`;
       }else if (userInput !== null) {
         // User entered something, you can treat userInput as a secret here
         outputElement.innerHTML += `<div>${userInput} is not the correct password</div>`;
@@ -294,26 +336,14 @@ async function simulateCommandExecution(command) {
       }
       break;
     case "whois":
-        return `Just a developer like you`;
+        return typeText(`Just a developer like you`, outputElement);
     case "get-location":
-      try {
-        const location = await getUserLocationAsync();
-        console.log("Latitude: " + location.latitude);
-        console.log("Longitude: " + location.longitude);
-        return (
-          "Your location: Latitude " +
-          location.latitude +
-          ", Longitude " +
-          location.longitude
-        );
-      } catch (error) {
-        return error;
-      };
+      return await getLocation();
     case "email":
         const mailtoLink = `mailto:${'jromil51@gmail.com'}`;
         window.open(mailtoLink, "_blank");
         return;
     default:
-      return `Command not found: ${command}`;
+      return typeText(`Command not found: ${command}`, outputElement);
   }
 }
