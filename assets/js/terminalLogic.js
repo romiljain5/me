@@ -361,7 +361,7 @@ async function simulateCommandExecution(command) {
     case "email":
         const mailtoLink = `mailto:${'jromil51@gmail.com'}`;
         window.open(mailtoLink, "_blank");
-        return;
+        return 'Redirecting to email page';
     default:
       return typeText(`Command not found: ${command}`, outputElement);
   }
